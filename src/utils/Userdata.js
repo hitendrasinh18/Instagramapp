@@ -22,4 +22,9 @@ export const Userdata =[
         }
 
     },
-]
+];
+
+export const typeData = [
+    {id:1, image:require("../assets/icon/pixels.png")},
+    {id:2, image:require('../assets/icon/tag.png')}
+];
