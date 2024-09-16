@@ -5,15 +5,55 @@ import { loginInitialvalue, loginValidation } from './Utils';
 import InputBox from '../../components/InputBox';
 import { useNavigation } from '@react-navigation/native';
 import LoginButton from '../../components/LoginButton';
-const Loginscreen = ({ }) => {
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+import React, { useState, useEffect } from 'react';
 
+
+const Loginscreen = ({ }) => {
+    GoogleSignin.configure({
+        webClientId:'486519789143-iemh0cljfg1kjino6hpsscolpj5h2ki3.apps.googleusercontent.com'
+    })
+
+    const [initializing, setInitializing] = useState(true);
+    const [user, setUser] = useState();
+  
+    // Handle user state changes
+    function onAuthStateChanged(user) {
+      setUser(user);
+      if (initializing) setInitializing(false);
+    }
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        return subscriber; // unsubscribe on unmount
+      }, []);
+      const onGoogleButtonPress = async() => {
+        // Check if your device supports Google Play
+        await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+        // Get the users ID token
+        const { idToken } = await GoogleSignin.signIn();
+      
+        // Create a Google credential with the token
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      
+        // Sign-in the user with the credential
+const usersignin = auth().signInWithCredential(googleCredential)    
+usersignin.then ((user) => {
+    console.log(user);
+} ) }
+    
+      if (initializing) return null;
+     
+      
     const navigation = useNavigation();
     const handleLogin = values => {
         console.log(values)
         navigation.navigate('Dashboard')
 
     }
+
     return (
+       
         <View style={{ flex: 1, alignItems: "center", }}>
             <View style={{ flex: 0.9, justifyContent: 'center', }}>
                 <Image source={require('../../assets/instagram.png')} style={{ height: 60, width: 220, marginLeft: 40, marginBottom: 20 }} ></Image>
@@ -64,8 +104,8 @@ const Loginscreen = ({ }) => {
                     gap: 10,
                     marginTop:15,
                     backgroundColor:"#3797FE",
-                    
-                }} onPress={() => {/*signIn();*/ }}>
+                                       
+                }} onPress={() => {onGoogleButtonPress }}>
                     <Image source={require('../auth/google.png')} style={{
                         height: 18,
                         width: 18,
