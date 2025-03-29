@@ -4,41 +4,26 @@
     "slug": "Instagramapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconnn.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    
-    
-        "plugins": 
-          [
-            "@react-native-google-signin/google-signin"
-          
-          ],
-      
-    
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier":"com.Instagramapp"
+      "bundleIdentifier": "com.Instagramapp"
     },
     "android": {
-      "googleServicesFile":"./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-
       },
-      "package": "com.Instagramapp"    },
+      "package": "com.Instagramapp"
+    },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "010e021f-1ac9-4665-82ba-bc705fe96e37"
-      }
     }
   }
 }

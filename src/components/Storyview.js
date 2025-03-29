@@ -35,7 +35,7 @@ const Storiesview = ({ route }) => {
                 <View style={{ flexDirection: 'row', marginTop: 10, alignItems: 'center', }}>
                     <TextInput style={{ borderWidth: 1, borderColor: 'white', width: 300, paddingHorizontal: 15, color: 'white', borderRadius: 30 }} placeholder="Message" placeholderTextColor={'white'}></TextInput>
                     <TouchableOpacity>
-                        <Image style={{ tintColor: 'white', marginLeft: 20, }} source={require('../assets/send.png')}></Image>
+                        <Image style={{ tintColor: 'white', marginLeft: 20, }} source={require('../../assets/send.png')}></Image>
                     </TouchableOpacity>
                 </View>
             </View>

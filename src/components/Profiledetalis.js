@@ -1,55 +1,68 @@
 import React from "react";
-import {View ,Text,Image, TouchableOpacity, Button} from 'react-native'
+import { View, Text, Image, StyleSheet } from "react-native";
 
-const Profiledetalis = () => {
-    return(
-<View style={{paddingHorizontal:15}}>
-    <View style={{flexDirection:'row', justifyContent:"space-between", alignItems:"center"}}>
-        <Image source={require('../assets/hearts.png')} style={{height:80,width:80,borderRadius:4}}></Image>
-        <View style={{width:75,alignItems:"center"}}>
-            <Text style={{fontSize:24,fontWeight:'400',color:'black'}}>4</Text>
-            <Text style={{fontSize:16,color:'black'}}>Post</Text>
+const ProfileDetails = () => {
+    return (
+        <View style={styles.container}>
+            {/* Profile Picture */}
+            <Image source={require("../../assets/data/elondp.png")} style={styles.profilePic} />
 
+            {/* Stats */}
+            <View style={styles.statsContainer}>
+                <View style={styles.stat}>
+                    <Text style={styles.statNumber}>50</Text>
+                    <Text style={styles.statLabel}>Posts</Text>
+                </View>
+                <View style={styles.stat}>
+                    <Text style={styles.statNumber}>1.2M</Text>
+                    <Text style={styles.statLabel}>Followers</Text>
+                </View>
+                <View style={styles.stat}>
+                    <Text style={styles.statNumber}>200</Text>
+                    <Text style={styles.statLabel}>Following</Text>
+                </View>
+            </View>
 
-
+            {/* Bio */}
+            <Text style={styles.bio}>🚀 CEO @SpaceX | 🔋 Tesla | 📡 Starlink</Text>
         </View>
-        <View style={{width:75,alignItems:"center"}}>
-            <Text style={{fontSize:24,fontWeight:'400',color:'black'}}>100</Text>
-            <Text style={{fontSize:16,color:'black'}}>Followers</Text>
+    );
+};
 
+export default ProfileDetails;
 
-
-        </View>
-        <View style={{width:75,alignItems:"center"}}>
-            <Text style={{fontSize:24,fontWeight:'400',color:'black'}}>1</Text>
-            <Text style={{fontSize:16,color:'black'}}>Following</Text>
-
-
-
-        </View>
-    </View>
-    <Text style={{fontSize:16, fontWeight:500,color:"Black", marginTop:10,}} >Hitendra Parmar</Text>
-    <Text  > React Native</Text>
-    <Text >Instagram Clone</Text>
-    <Text style={{fontSize:18,fontWeight:500,}}> See Translation</Text>
-
-    <View style={{flexDirection:"row", justifyContent:"space-between",marginTop:15,marginHorizontal:10}}>
-        <TouchableOpacity>
-            
-         <Text style={{backgroundColor:"#E1E1E1", width: 150,paddingHorizontal:10, paddingVertical:5,borderRadius:5,textAlign:"center", color:'black',}}>Edit Profile</Text>          
-
-        </TouchableOpacity>
-        <TouchableOpacity>
-            
-         <Text style={{backgroundColor:"#E1E1E1", width: 150,paddingHorizontal:10, paddingVertical:5,borderRadius:5,textAlign:"center", color:'black',}}>Share Profile</Text>          
-
-        </TouchableOpacity>
-    </View>
-
-
-</View>
-
-    )
-}
-
-export default Profiledetalis;
+const styles = StyleSheet.create({
+    container: {
+        alignItems: "center",
+        padding: 15,
+    },
+    profilePic: {
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+        marginBottom: 10,
+    },
+    statsContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        width: "100%",
+    },
+    stat: {
+        alignItems: "center",
+    },
+    statNumber: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "black",
+    },
+    statLabel: {
+        fontSize: 14,
+        color: "gray",
+    },
+    bio: {
+        marginTop: 10,
+        fontSize: 14,
+        color: "black",
+        textAlign: "center",
+    },
+});

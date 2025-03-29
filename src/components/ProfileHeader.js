@@ -1,24 +1,35 @@
 import React from "react";
-import {View ,Text, Image, TouchableOpacity} from 'react-native'
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
 const ProfileHeader = () => {
-
-    return(
-    <View style={{paddingHorizontal:15, paddingTop:10, height:55, marginTop:15}}>
-        <View style={{flexDirection:'row',justifyContent:"space-between",alignItems:'center'}}>
-
-        <Text style={{fontSize:24,fontWeight:'500',color:"black"}}>Hitendra Parmar </Text>
-        <View style={{flexDirection:'row', alignItems:'center'}}>
-            <TouchableOpacity style={{marginRight:15}}>
-            <Image style={{height:24,width:24}} source={require('../assets/more.png')}></Image>
-            </TouchableOpacity>
+    return (
+        <View style={styles.header}>
+            <Text style={styles.username}>musklon</Text>
             <TouchableOpacity>
-            <Image style={{height:24,width:24}} source={require('../assets/menu.png')}></Image>
+                <Image source={require("../../assets/icon/tag.png")} style={styles.menuIcon} />
             </TouchableOpacity>
         </View>
-        </View>
-    </View>
-    )
-}
+    );
+};
 
 export default ProfileHeader;
+
+const styles = StyleSheet.create({
+    header: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: 15,
+        borderBottomWidth: 1,
+        borderColor: "#ddd",
+    },
+    username: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "black",
+    },
+    menuIcon: {
+        width: 24,
+        height: 24,
+    },
+});

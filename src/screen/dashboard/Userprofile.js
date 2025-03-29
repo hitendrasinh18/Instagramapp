@@ -1,20 +1,24 @@
 import React from "react";
-import {View ,Text} from 'react-native'
+import { View, ScrollView, StyleSheet } from "react-native";
 import ProfileHeader from "../../components/ProfileHeader";
-import Profiledetalis from "../../components/Profiledetalis";
-import ProfilePost from "../../components/ProfilePost";
+import ProfileDetails from "../../components/Profiledetalis";
+import ProfileTabs from "../../components/ProfileTab";
 
-const Userprofile = () => {
-    return(
-<View>
-    <ProfileHeader ></ProfileHeader>
-    <Profiledetalis>
-    </Profiledetalis>
-    <ProfilePost></ProfilePost>
-    </View>
-    )
+const UserProfile = () => {
+    return (
+        <ScrollView style={styles.container}>
+            <ProfileHeader/>
+            <ProfileDetails />
+            <ProfileTabs />
+        </ScrollView>
+    );
+};
 
-}
- 
+export default UserProfile;
 
-export default Userprofile;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "white",
+    },
+});

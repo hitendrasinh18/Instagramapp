@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import React from 'react';
 import StackNavigation from './src/navigtor/Stacknavigation';
 import SignUpscreen from './src/screen/auth/SignUpscreen';
-import 'expo-dev-client';
 
 
 
